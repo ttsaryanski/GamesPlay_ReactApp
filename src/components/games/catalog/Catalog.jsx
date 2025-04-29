@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { gamesService } from "../../../services/gamesService";
+import { gamesService } from "../../../services/gameService";
 
 import GameForCatalog from "../gameForCatalog/GameForCatalog";
 import Spinner from "../../shared/spinner/Spinner";
