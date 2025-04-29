@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { gamesService } from "../../services/gameService";
+import { gameService } from "../../services/gameService";
 
 import GameForHome from "../games/gameForHome/GameForHome";
 import Spinner from "../shared/spinner/Spinner";
@@ -16,7 +16,7 @@ export default function Home() {
         //setError(null);
         const fetchGames = async () => {
             try {
-                const result = await gamesService.getLastThree(signal);
+                const result = await gameService.getLastThree(signal);
                 setGames(result);
                 setIsLoading(false);
             } catch (error) {

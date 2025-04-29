@@ -13,7 +13,12 @@ async function getLastThree(signal) {
     return await api.get(endPoints.getLastThree, signal);
 }
 
-export const gamesService = {
+async function getById(id, signal) {
+    return await api.get(endPoints.getAll + `/${id}`, signal);
+}
+
+export const gameService = {
     getAll,
     getLastThree,
+    getById,
 };
