@@ -44,7 +44,8 @@ button {
     background-color: transparent;
 }
 
-a {
+a,
+.a {
     margin: 0.2em;
     text-decoration: none;
     font-weight: bold;

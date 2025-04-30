@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 import { useAuth } from "../../../contexts/AuthContext";
@@ -6,7 +5,6 @@ import { useError } from "../../../contexts/ErrorContext";
 
 export default function Header() {
     const { user, logout } = useAuth();
-    const { setError } = useError();
 
     return (
         <header>
@@ -27,7 +25,9 @@ export default function Header() {
                 {user ? (
                     <div id="user">
                         <Link to="/games/create">Create Game</Link>
-                        <a href="#">Logout</a>
+                        <button onClick={logout} className="a button">
+                            Logout
+                        </button>
                     </div>
                 ) : (
                     <div id="guest">

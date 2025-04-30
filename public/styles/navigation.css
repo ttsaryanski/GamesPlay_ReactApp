@@ -61,11 +61,13 @@ footer {
     bottom: 0;
 }
 
-nav a {
+nav a,
+nav .a {
     margin: 0 0.5em;
 }
 
-nav a:hover {
+nav a:hover,
+nav .a:hover {
     cursor: pointer;
     color: rgb(82, 133, 139);
     font-weight: bolder;
@@ -79,4 +81,11 @@ nav a:hover {
 #guest {
     margin: 0;
     padding: 0;
+}
+
+.a.button {
+    all: unset;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 0.5em;
 }
