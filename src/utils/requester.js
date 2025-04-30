@@ -1,4 +1,4 @@
-const host = "http://localhost:3000/api/games_play";
+const host = `${import.meta.env.VITE_APP_SERVER_URL}/api/games_play`;
 
 async function requester(method, url, data, signal) {
     const option = {
