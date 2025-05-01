@@ -1,7 +1,6 @@
 import { Link } from "react-router";
 
 import { useAuth } from "../../../contexts/AuthContext";
-import { useError } from "../../../contexts/ErrorContext";
 
 export default function Header() {
     const { user, logout } = useAuth();
