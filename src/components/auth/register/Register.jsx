@@ -111,6 +111,7 @@ export default function Register() {
                         id="email"
                         name="email"
                         placeholder="maria@email.com"
+                        value={email}
                         required
                         onChange={emailChangeHandler}
                     />
