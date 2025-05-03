@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 
+import { useError } from "../../contexts/ErrorContext";
+
 import { gameService } from "../../services/gameService";
 
 import GameForHome from "../games/gameForHome/GameForHome";
 import Spinner from "../shared/spinner/Spinner";
 
 export default function Home() {
+    const { setError } = useError();
+
     const [games, setGames] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -13,17 +17,16 @@ export default function Home() {
         const abortController = new AbortController();
         const signal = abortController.signal;
 
-        //setError(null);
+        setError(null);
         const fetchGames = async () => {
             try {
                 const result = await gameService.getLastThree(signal);
                 setGames(result);
                 setIsLoading(false);
             } catch (error) {
-                // if (!signal.aborted) {
-                //     setError(error.message);
-                // }
-                console.log(error.message);
+                if (!signal.aborted) {
+                    setError(error.message);
+                }
             }
         };
         fetchGames();
