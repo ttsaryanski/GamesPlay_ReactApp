@@ -21,9 +21,14 @@ async function createNew(data) {
     return await api.post(endPoints.getAll, data);
 }
 
+async function delById(id) {
+    return await api.del(endPoints.getAll + `/${id}`);
+}
+
 export const gameService = {
     getAll,
     getLastThree,
     getById,
     createNew,
+    delById,
 };

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 
 import { useAuth } from "../../../contexts/AuthContext";
 import { useError } from "../../../contexts/ErrorContext";
@@ -10,7 +10,8 @@ import Comments from "../../comments/comments/Comments";
 import CreateComment from "../../comments/createComment/CreateComment";
 
 export default function DetailsGame() {
-    const { user, isAuthenticated } = useAuth();
+    const navigate = useNavigate();
+    const { user } = useAuth();
     const { gameId } = useParams();
     const { setError } = useError();
 
@@ -40,6 +41,20 @@ export default function DetailsGame() {
         };
     }, []);
 
+    const deleteGameHandler = async () => {
+        const hasConfirm = confirm(
+            `Are you sure you want to delete ${game.title} game?`
+        );
+
+        if (!hasConfirm) {
+            return;
+        }
+
+        await gameService.delById(gameId);
+
+        navigate("/games/catalog");
+    };
+
     return (
         <section id="game-details">
             <h1>Game Details</h1>
@@ -53,24 +68,23 @@ export default function DetailsGame() {
 
                 <p className="text">{game.summary}</p>
 
-                {/* <!-- Bonus ( for Guests and Users ) --> */}
                 <Comments comments={comments} />
 
-                {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
                 {user && isOwner && (
                     <div className="buttons">
-                        <a href="#" className="button">
+                        <Link to={`/games/edit/${gameId}`} className="button">
                             Edit
-                        </a>
-                        <a href="#" className="button">
+                        </Link>
+                        <button
+                            onClick={deleteGameHandler}
+                            className="button del-button"
+                        >
                             Delete
-                        </a>
+                        </button>
                     </div>
                 )}
             </div>
 
-            {/* <!-- Bonus --> */}
-            {/* <!-- Add Comment ( Only for logged-in users, which is not creators of the current game ) --> */}
             {user && !isOwner && <CreateComment />}
         </section>
     );
