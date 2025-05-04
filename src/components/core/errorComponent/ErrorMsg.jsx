@@ -20,7 +20,7 @@ export default function ErrorMsg() {
 
             const timer = setTimeout(() => {
                 setError(null);
-            }, 10000000);
+            }, 10000);
 
             return () => {
                 clearTimeout(timer);

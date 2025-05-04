@@ -50,9 +50,12 @@ export default function DetailsGame() {
             return;
         }
 
-        await gameService.delById(gameId);
-
-        navigate("/games/catalog");
+        try {
+            await gameService.delById(gameId);
+            navigate("/games/catalog");
+        } catch (error) {
+            setError(`Delete game failed: ${error.message}`);
+        }
     };
 
     return (
@@ -85,7 +88,7 @@ export default function DetailsGame() {
                 )}
             </div>
 
-            {user && !isOwner && <CreateComment />}
+            {/* {user && !isOwner && <CreateComment />} */}
         </section>
     );
 }

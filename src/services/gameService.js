@@ -21,6 +21,10 @@ async function createNew(data) {
     return await api.post(endPoints.getAll, data);
 }
 
+async function editById(id, data) {
+    return await api.put(endPoints.getAll + `/${id}`, data);
+}
+
 async function delById(id) {
     return await api.del(endPoints.getAll + `/${id}`);
 }
@@ -30,5 +34,6 @@ export const gameService = {
     getLastThree,
     getById,
     createNew,
+    editById,
     delById,
 };

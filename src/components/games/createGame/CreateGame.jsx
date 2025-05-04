@@ -265,7 +265,10 @@ export default function CreateGame() {
                         disabled={!isFormValid || pending}
                         style={
                             !isFormValid || pending
-                                ? { cursor: "not-allowed" }
+                                ? {
+                                      cursor: "not-allowed",
+                                      backgroundColor: "#778e9c",
+                                  }
                                 : {}
                         }
                     />
