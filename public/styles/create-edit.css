@@ -1,7 +1,8 @@
 #create-page,
 #edit-page {
     position: relative;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     height: auto;
     border-radius: 20px;
     padding: 40px;
