@@ -174,3 +174,64 @@
     font-size: 60px;
     font-family: "Agency FB";
 }
+
+@media (max-width: 600px) {
+    .game {
+      padding: 20px 0;
+      margin: 20px 0;
+      float: none;
+    }
+
+    .game h3 {
+        font-size: 30px;
+    }
+
+    .image-wrap {
+        width: 80%;
+        aspect-ratio: 1/1;
+    }
+
+    #welcome-world>#home-page {
+        margin-top: 20px;
+    }
+
+    #home-page>h1 {
+        font-size: 40px;
+    }
+
+    .welcome-message h2 {
+        font-size: 100%;
+    }
+
+    .welcome-message h3 {
+        font-size: 200%;
+    }
+
+    #welcome-world {
+        padding-top: 0;
+    }
+
+    #welcome-world>img {
+        margin-left: auto;
+    }
+
+    .rating span {
+        font-size: 30px;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* div {
+        margin: 0;
+    } */
+
+    .details-btn {
+        padding: 0.5em 1em;
+    }
+
+    #welcome-world>img {
+        vertical-align: top;
+        max-width: 50%;
+        margin-left: 50px;
+    }
+  }

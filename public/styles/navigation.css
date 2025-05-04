@@ -21,7 +21,7 @@ footer {
 }
 
 .home {
-    font-size: auto;
+    font-size: 40px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -88,4 +88,29 @@ nav .a:hover {
     cursor: pointer;
     font-weight: bold;
     margin: 0 0.5em;
+}
+
+@media (max-width: 600px) {
+    header {
+        justify-content: space-between;
+    }
+    
+    nav,
+    #user,
+    #guest {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header h1 {
+        padding: 0;
+    }
+
+    .home {
+        font-size: 16px;
+    }
+
+    span {
+        margin: 0 0.5em;
+    }
 }

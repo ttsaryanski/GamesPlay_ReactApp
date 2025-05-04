@@ -74,3 +74,36 @@
     margin-top: auto;
     margin-left: 20px;
 }
+
+@media (max-width: 600px) {
+    .allGames-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .allGames-info>img {
+        /* margin-top: -10px;
+        border-radius: 50%;
+        height: 140px; */
+        position: relative;
+        top: 0;
+        right: 0;
+        /* float: right;
+        padding: 5px;
+        width: 140px; */
+    }
+
+    .details-button {
+        /* background-color: #2A265F;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        font-size: 20px; */
+        position: relative;
+        bottom: 0;
+        text-align: center;
+        /* letter-spacing: 1px;
+        padding: 10px;
+        margin-top: auto; */
+        margin: 10px auto 0;
+    }
+}

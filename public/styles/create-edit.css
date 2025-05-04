@@ -37,3 +37,9 @@ textarea {
     color: black;
     box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
 }
+
+@media (max-width: 600px) {
+    #create-page, #edit-page {
+        padding: 0;
+    }
+}

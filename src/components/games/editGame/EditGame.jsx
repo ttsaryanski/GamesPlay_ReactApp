@@ -108,7 +108,9 @@ export default function EditGame() {
 
     const validateImageUrl = (value) => {
         const urlRegex = /^https?:\/\//;
-        return urlRegex.test(value) ? "" : "Invalid URL format.";
+        return urlRegex.test(value)
+            ? ""
+            : "Please enter a valid image URL starting with http(s)://...";
     };
 
     const validateSummary = (value) => {
