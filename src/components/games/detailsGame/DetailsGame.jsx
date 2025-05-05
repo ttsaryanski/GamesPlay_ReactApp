@@ -5,6 +5,7 @@ import { useAuth } from "../../../contexts/AuthContext";
 import { useError } from "../../../contexts/ErrorContext";
 
 import { gameService } from "../../../services/gameService";
+import { commentService } from "../../../services/commentService";
 
 import Comments from "../../comments/comments/Comments";
 import CreateComment from "../../comments/createComment/CreateComment";
@@ -15,8 +16,12 @@ export default function DetailsGame() {
     const { gameId } = useParams();
     const { setError } = useError();
 
+    const [pending, setPending] = useState(false);
+
     const [game, setGame] = useState({});
+    const [comment, setComment] = useState("");
     const [comments, setComments] = useState([]);
+    const [errors, setErrors] = useState({ comment: "" });
     const isOwner = user?._id === game._ownerId;
 
     useEffect(() => {
@@ -30,16 +35,34 @@ export default function DetailsGame() {
                 setGame(result);
             } catch (error) {
                 if (!signal.aborted) {
-                    setError(`Error fetching game: ${error.message}`);
+                    setError((prev) => [
+                        ...(prev || []),
+                        `Error fetching game: ${error.message}`,
+                    ]);
+                }
+            }
+        };
+
+        const fetchComments = async () => {
+            try {
+                const result = await commentService.getAll(gameId, signal);
+                setComments(result);
+            } catch (error) {
+                if (!signal.aborted) {
+                    setError((prev) => [
+                        ...(prev || []),
+                        `Error fetching comments: ${error.message}`,
+                    ]);
                 }
             }
         };
         fetchGame();
+        fetchComments();
 
         return () => {
             abortController.abort();
         };
-    }, []);
+    }, [gameId, setError]);
 
     const deleteGameHandler = async () => {
         const hasConfirm = confirm(
@@ -57,6 +80,40 @@ export default function DetailsGame() {
             setError(`Delete game failed: ${error.message}`);
         }
     };
+
+    const createCommentHandler = async (e) => {
+        e.preventDefault();
+
+        setPending(true);
+        setError(null);
+        try {
+            const newComment = await commentService.createNew({
+                gameId: gameId,
+                content: comment,
+            });
+            setComments((prevComments) => [...prevComments, newComment]);
+            setComment("");
+        } catch (error) {
+            setError(`Create comment failed: ${error.message}`);
+        } finally {
+            setPending(false);
+        }
+    };
+
+    const validateComment = (value) => {
+        if (value.length < 10) {
+            return "Comment must be at least 10 characters long.";
+        }
+        return "";
+    };
+
+    const commentChangeHandler = (e) => {
+        const value = e.target.value;
+        setComment(value);
+        setErrors({ comment: validateComment(value) });
+    };
+
+    const isFormValid = !errors.comment && comment;
 
     return (
         <section id="game-details">
@@ -88,7 +145,16 @@ export default function DetailsGame() {
                 )}
             </div>
 
-            {/* {user && !isOwner && <CreateComment />} */}
+            {user && !isOwner && (
+                <CreateComment
+                    onCreate={createCommentHandler}
+                    onChange={commentChangeHandler}
+                    comment={comment}
+                    pending={pending}
+                    isFormValid={isFormValid}
+                    errors={errors}
+                />
+            )}
         </section>
     );
 }

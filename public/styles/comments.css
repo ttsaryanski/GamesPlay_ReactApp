@@ -54,3 +54,30 @@
     color: white;
     cursor: pointer;
 }
+
+@media (max-width: 600px) {
+    .details-comments {
+        display: block;
+    }
+
+    .info-section>.details-comments li {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .details-comments ul {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .comment p {
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+
+    
+.create-comment>.form>textarea {
+    width: 100%;
+}
+}

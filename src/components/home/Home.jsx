@@ -34,7 +34,7 @@ export default function Home() {
         return () => {
             abortController.abort();
         };
-    }, []);
+    }, [setError]);
 
     return (
         <section id="welcome-world">

@@ -34,7 +34,7 @@ export default function Catalog() {
         return () => {
             abortController.abort();
         };
-    }, []);
+    }, [setError]);
 
     return (
         <section id="catalog-page">
