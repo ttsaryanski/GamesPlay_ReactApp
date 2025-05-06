@@ -1,12 +1,35 @@
-# React + Vite
+# GamesPlay - [Live App](https://gamesplay-54b41.web.app/) - Firebase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+⚠️ **Note:** The Rest API is hosted on a free-tier service and may take some time to wake up after a period of inactivity. Please be patient when making the first request.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a Single Page Application (SPA) designed to serve as a catalog for games. The project includes both public and private sections, following the required specifications. The app demonstrates dynamic functionalities, interaction with the REST API, and the use of core concepts and technologies in React.
 
-## Expanding the ESLint configuration
+## Technologies and Concepts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Core Technologies
+
+-   📌**React**: The main library for the client-side part.
+-   📌**REST API**: For communication with a remote server.
+-   📌**JavaScript**: Used for dynamic interaction within the app.
+
+### Core React Concepts
+
+-   📌**Routing**: React Router is used to manage client-side routing for different pages.
+-   📌**Component State**: useState and useReducer are used for managing state within components.
+-   📌**React Hooks**: Various hooks like useEffect, useContext are used to manage component behavior and state.
+-   📌**Context API**: Used to share state across components without passing props.
+-   📌**React Router Guards**: Used to protect both public and private sections of the app (e.g., authentication checks).
+
+### Core Features
+
+-   📌**CRUD Operations**: Full support for creating, reading, updating, and deleting records (e.g., classes, students, and grades).
+-   📌**Data Validation**: Client-side validation to prevent errors when entering data.
+-   📌**Error Handling**: Management of errors during communication with the REST API, displaying error messages for failed requests.
+-   📌**Stay Logged In**: Users remain logged in after a page reload using cookies.
+
+---
+
+⚠️ **Note:** This application was developed as part of the educational program at [SoftUni (Software University)](https://softuni.bg).  
+It demonstrates the practical application of concepts and technologies studied in the React module.
