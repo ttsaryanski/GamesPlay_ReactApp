@@ -115,6 +115,23 @@ export default function DetailsGame() {
 
     const isFormValid = !errors.comment && comment;
 
+    const deleteCommentHandler = async (commentId) => {
+        const hasConfirm = confirm(
+            `Are you sure you want to delete this comment?`
+        );
+
+        if (!hasConfirm) {
+            return;
+        }
+
+        try {
+            await commentService.delById(commentId);
+            setComments((prev) => prev.filter((c) => c._id !== commentId));
+        } catch (error) {
+            setError(`Delete comment failed: ${error.message}`);
+        }
+    };
+
     return (
         <section id="game-details">
             <h1>Game Details</h1>
@@ -128,7 +145,11 @@ export default function DetailsGame() {
 
                 <p className="text">{game.summary}</p>
 
-                <Comments comments={comments} />
+                <Comments
+                    comments={comments}
+                    delComment={deleteCommentHandler}
+                    user={user}
+                />
 
                 {user && isOwner && (
                     <div className="buttons">
