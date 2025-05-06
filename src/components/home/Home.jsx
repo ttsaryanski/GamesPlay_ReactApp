@@ -4,7 +4,7 @@ import { useError } from "../../contexts/ErrorContext";
 
 import { gameService } from "../../services/gameService";
 
-import GameForHome from "../games/gameForHome/GameForHome";
+import GameForHome from "./gameForHome/GameForHome";
 import Spinner from "../shared/spinner/Spinner";
 
 export default function Home() {

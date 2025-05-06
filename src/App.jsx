@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router";
 import { AuthProvider } from "./contexts/AuthContext";
 import { ErrorProvider } from "./contexts/ErrorContext";
 
+import ErrorBoundary from "./components/boundary/ErrorBoundary";
 import Header from "./components/core/header/Header";
 import Home from "./components/home/Home";
 import Catalog from "./components/games/catalog/Catalog";
@@ -20,41 +21,43 @@ function App() {
     return (
         <ErrorProvider>
             <AuthProvider>
-                <div id="box">
-                    <Header />
+                <ErrorBoundary>
+                    <div id="box">
+                        <Header />
 
-                    <ErrorMsg />
+                        <ErrorMsg />
 
-                    <main id="main-content">
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route
-                                path="/games/catalog"
-                                element={<Catalog />}
-                            />
-                            <Route
-                                path="/games/create"
-                                element={<CreateGame />}
-                            />
-                            <Route
-                                path="/games/edit/:gameId"
-                                element={<EditGame />}
-                            />
-                            <Route
-                                path="/games/details/:gameId"
-                                element={<DetailsGame />}
-                            />
+                        <main id="main-content">
+                            <Routes>
+                                <Route path="/" element={<Home />} />
+                                <Route
+                                    path="/games/catalog"
+                                    element={<Catalog />}
+                                />
+                                <Route
+                                    path="/games/create"
+                                    element={<CreateGame />}
+                                />
+                                <Route
+                                    path="/games/edit/:gameId"
+                                    element={<EditGame />}
+                                />
+                                <Route
+                                    path="/games/details/:gameId"
+                                    element={<DetailsGame />}
+                                />
 
-                            <Route path="/auth/login" element={<Login />} />
-                            <Route
-                                path="/auth/register"
-                                element={<Register />}
-                            />
+                                <Route path="/auth/login" element={<Login />} />
+                                <Route
+                                    path="/auth/register"
+                                    element={<Register />}
+                                />
 
-                            <Route path="*" element={<Page404 />} />
-                        </Routes>
-                    </main>
-                </div>
+                                <Route path="*" element={<Page404 />} />
+                            </Routes>
+                        </main>
+                    </div>
+                </ErrorBoundary>
             </AuthProvider>
         </ErrorProvider>
     );

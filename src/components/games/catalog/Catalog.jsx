@@ -4,7 +4,7 @@ import { useError } from "../../../contexts/ErrorContext";
 
 import { gameService } from "../../../services/gameService";
 
-import GameForCatalog from "../gameForCatalog/GameForCatalog";
+import GameForCatalog from "./gameForCatalog/GameForCatalog";
 import Spinner from "../../shared/spinner/Spinner";
 
 export default function Catalog() {
