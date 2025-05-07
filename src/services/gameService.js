@@ -3,6 +3,7 @@ import { api } from "../utils/requester";
 const endPoints = {
     getAll: "/games",
     getLastThree: "/games/last_three",
+    infinity: (query) => `/games/infinity?page=${query}`,
 };
 
 async function getAll(signal) {
@@ -29,6 +30,10 @@ async function delById(id) {
     return await api.del(endPoints.getAll + `/${id}`);
 }
 
+async function getInfinity(query, signal) {
+    return await api.get(endPoints.infinity(query, signal));
+}
+
 export const gameService = {
     getAll,
     getLastThree,
@@ -36,4 +41,5 @@ export const gameService = {
     createNew,
     editById,
     delById,
+    getInfinity,
 };
