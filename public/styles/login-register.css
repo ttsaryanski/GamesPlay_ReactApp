@@ -146,10 +146,14 @@ label[for="terms"]>input {
     }
 
     .field {
-        margin-top: 30px;
+        margin-top: 2rem;
     }
 
     .field>span {
         font-size: initial;
+        position: relative;
+        display: block;
+        bottom: initial;
+        right: initial;
     }
 }
