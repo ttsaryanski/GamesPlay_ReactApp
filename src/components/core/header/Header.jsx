@@ -24,6 +24,11 @@ export default function Header() {
                 {user ? (
                     <div id="user">
                         <Link to="/games/create">Create Game</Link>
+                        {user && user.role === "admin" ? (
+                            <Link to="/admin">Admin</Link>
+                        ) : (
+                            ""
+                        )}
                         <button onClick={logout} className="a button">
                             Logout
                         </button>

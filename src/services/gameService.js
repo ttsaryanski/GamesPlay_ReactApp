@@ -31,7 +31,7 @@ async function delById(id) {
 }
 
 async function getInfinity(query, signal) {
-    return await api.get(endPoints.infinity(query, signal));
+    return await api.get(endPoints.infinity(query), signal);
 }
 
 export const gameService = {

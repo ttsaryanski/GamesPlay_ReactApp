@@ -1,12 +1,18 @@
 import { Routes, Route } from "react-router";
 
-import { AuthProvider } from "./contexts/AuthContext";
 import { ErrorProvider } from "./contexts/ErrorContext";
-
+import { AuthProvider } from "./contexts/AuthContext";
 import ErrorBoundary from "./components/boundary/ErrorBoundary";
+
+import AdminGuard from "./components/guards/AdminGuard";
+import AuthGuard from "./components/guards/AuthGuard";
 import GuestGuard from "./components/guards/GuestGuard";
+
 import Header from "./components/core/header/Header";
 import ErrorMsg from "./components/core/errorComponent/ErrorMsg";
+import Admin from "./components/admin/admin/Admin";
+import AdminGames from "./components/admin/adminGames/AdminGames";
+import AdminUsers from "./components/admin/adminUsers/AdminUsers";
 import Home from "./components/home/Home";
 import Catalog from "./components/games/catalog/Catalog";
 import DetailsGame from "./components/games/detailsGame/DetailsGame";
@@ -17,7 +23,6 @@ import Register from "./components/auth/register/Register";
 import Page404 from "./components/page 404/Page404";
 
 import "./App.css";
-import AuthGuard from "./components/guards/AuthGuard";
 
 function App() {
     return (
@@ -64,6 +69,20 @@ function App() {
                                     <Route
                                         path="/auth/register"
                                         element={<Register />}
+                                    />
+                                </Route>
+
+                                <Route element={<AdminGuard />}>
+                                    <Route path="/admin" element={<Admin />} />
+
+                                    <Route
+                                        path="/admin/games"
+                                        element={<AdminGames />}
+                                    />
+
+                                    <Route
+                                        path="/admin/users"
+                                        element={<AdminUsers />}
                                     />
                                 </Route>
 
