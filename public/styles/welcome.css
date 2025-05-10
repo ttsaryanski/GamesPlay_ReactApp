@@ -221,9 +221,10 @@
         margin: 0;
     }
 
-    /* div {
-        margin: 0;
-    } */
+    #home-page>.buttons.admin {
+        display: flex;
+        flex-direction: column;
+    }
 
     .details-btn {
         padding: 0.5em 1em;

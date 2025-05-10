@@ -73,6 +73,7 @@
     padding: 10px;
     margin-top: auto;
     margin-left: 20px;
+    border-radius: 0.3em;
 }
 
 @media (max-width: 600px) {
@@ -105,5 +106,34 @@
         padding: 10px;
         margin-top: auto; */
         margin: 10px auto 0;
+    }
+
+    .admin_catalog .button {
+        height: auto;
+    }
+
+    .admin_catalog .buttons {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .admin_catalog .allGames {
+        justify-content: center;
+    }
+
+    .allGames-info.admin_info {
+        padding: 0;
+        width: auto;
+        justify-content: space-between;
+    }
+
+    .allGames-info.admin_info>h2 {
+        margin-top: 1em;
+    }
+
+    .allGames-info.admin_info>h2,
+    .allGames-info.admin_info>h6 {
+        font-size: 12px;
+        padding: 0;
     }
 }

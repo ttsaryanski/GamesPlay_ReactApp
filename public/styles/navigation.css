@@ -93,6 +93,7 @@ nav .a:hover {
 @media (max-width: 600px) {
     header {
         justify-content: space-between;
+        padding: 0;
     }
     
     nav,
@@ -112,5 +113,6 @@ nav .a:hover {
 
     span {
         margin: 0 0.5em;
+        font-size: 14px;
     }
 }

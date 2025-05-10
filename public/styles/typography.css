@@ -63,3 +63,9 @@ blockquote>cite {
     margin: 0.5em 2em;
     font-weight: bold;
 }
+
+@media (max-width: 600px) {
+    #box {
+        margin: 0;
+    }
+}
