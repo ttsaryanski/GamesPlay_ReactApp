@@ -111,7 +111,7 @@ export default function Stats() {
                             <h6>
                                 <span style={{ color: "red" }}>Date:</span>{" "}
                                 {new Date(stat.timestamp).toLocaleString(
-                                    "de-DE"
+                                    "bg-BG"
                                 )}
                                 ;
                             </h6>
