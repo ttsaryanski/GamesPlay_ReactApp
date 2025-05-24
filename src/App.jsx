@@ -13,6 +13,7 @@ import ErrorMsg from "./components/core/errorComponent/ErrorMsg";
 import Admin from "./components/admin/admin/Admin";
 import AdminGames from "./components/admin/adminGames/AdminGames";
 import AdminUsers from "./components/admin/adminUsers/AdminUsers";
+import Stats from "./components/admin/stats/Stats";
 import Home from "./components/home/Home";
 import Catalog from "./components/games/catalog/Catalog";
 import DetailsGame from "./components/games/detailsGame/DetailsGame";
@@ -83,6 +84,11 @@ function App() {
                                     <Route
                                         path="/admin/users"
                                         element={<AdminUsers />}
+                                    />
+
+                                    <Route
+                                        path="/admin/stats"
+                                        element={<Stats />}
                                     />
                                 </Route>
 

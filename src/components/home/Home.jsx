@@ -23,6 +23,8 @@ export default function Home() {
                 const result = await gameService.getLastThree(signal);
                 setGames(result);
                 setIsLoading(false);
+
+                await gameService.visitHomePage();
             } catch (error) {
                 if (!signal.aborted) {
                     setError(error.message);

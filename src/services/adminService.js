@@ -6,6 +6,7 @@ const endPoints = {
     getUsers: (query) => `/admin/users/?page=${query}`,
     delUser: "/admin/users",
     users: "/admin/users",
+    getStats: (query) => `/admin/stats/?page=${query}`,
 };
 
 async function getGames(query, signal) {
@@ -28,10 +29,15 @@ async function delUserById(id) {
     return await api.del(endPoints.delUser + `/${id}`);
 }
 
+async function getStats(query, signal) {
+    return await api.get(endPoints.getStats(query), signal);
+}
+
 export const adminService = {
     getGames,
     delGameById,
     getUsers,
     delUserById,
     makeAdmin,
+    getStats,
 };

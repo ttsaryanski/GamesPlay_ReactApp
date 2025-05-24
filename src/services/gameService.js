@@ -4,6 +4,7 @@ const endPoints = {
     getAll: "/games",
     getLastThree: "/games/last_three",
     infinity: (query) => `/games/infinity?page=${query}`,
+    visit: "/visit",
 };
 
 async function getAll(signal) {
@@ -34,6 +35,10 @@ async function getInfinity(query, signal) {
     return await api.get(endPoints.infinity(query), signal);
 }
 
+async function visitHomePage() {
+    return await api.post(endPoints.visit, { page: "home" });
+}
+
 export const gameService = {
     getAll,
     getLastThree,
@@ -42,4 +47,5 @@ export const gameService = {
     editById,
     delById,
     getInfinity,
+    visitHomePage,
 };

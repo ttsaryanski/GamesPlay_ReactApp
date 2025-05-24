@@ -12,8 +12,13 @@ export default function Admin() {
                 <Link to="/admin/users" className="button">
                     Users
                 </Link>
+
                 <Link to="/admin/games" className="button">
                     Games
+                </Link>
+
+                <Link to="/admin/stats" className="button">
+                    Stats
                 </Link>
             </div>
         </div>

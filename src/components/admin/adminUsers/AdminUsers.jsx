@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 
-import { useAuth } from "../../../contexts/AuthContext";
 import { useError } from "../../../contexts/ErrorContext";
 
 import { adminService } from "../../../services/adminService";
