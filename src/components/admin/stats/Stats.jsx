@@ -77,12 +77,6 @@ export default function Stats() {
         <section id="catalog-page" className="admin_catalog">
             <h1>Total visits: {totalStatsCount}</h1>
 
-            {isLoading && (
-                <div id="loader-wrapper" className="loader_wrapper">
-                    <Spinner />
-                </div>
-            )}
-
             {!isLoading && stats.length === 0 && (
                 <h3 className="no-articles">No stats yet</h3>
             )}
