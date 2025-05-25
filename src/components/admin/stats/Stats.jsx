@@ -38,7 +38,7 @@ export default function Stats() {
                     setHasMore(false);
                 }
                 setStats((prev) => [...prev, ...result.stats]);
-                setTotalStatsCount(result.totalCount - 1);
+                setTotalStatsCount(result.totalCount);
                 setIsLoading(false);
             } catch (error) {
                 if (!signal.aborted) {
