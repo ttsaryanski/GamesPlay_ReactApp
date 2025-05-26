@@ -1,12 +1,19 @@
-const host = `${import.meta.env.VITE_APP_SERVER_URL}/api/games_play`;
+const HOST = `${import.meta.env.VITE_APP_SERVER_URL}/api`;
+const host = `${HOST}/games_play`;
 
 async function requester(method, url, data, signal) {
+    await loadCsrfToken();
+
     const option = {
         method,
         credentials: "include",
         headers: {},
         signal,
     };
+
+    if (method !== "GET" && csrfToken) {
+        option.headers["X-CSRF-Token"] = csrfToken;
+    }
 
     if (data != undefined) {
         if (data instanceof FormData) {
@@ -61,3 +68,15 @@ export const api = {
     put,
     del,
 };
+
+let csrfToken = undefined;
+async function loadCsrfToken() {
+    if (!csrfToken) {
+        const res = await fetch(HOST + "/csrf-token", {
+            credentials: "include",
+        });
+
+        const data = await res.json();
+        csrfToken = data.csrfToken;
+    }
+}
