@@ -30,7 +30,13 @@ async function requester(method, url, data, signal) {
         if (!response.ok) {
             const error = await response.json();
 
-            throw new Error(error.message);
+            if (response.status === 429) {
+                throw new Error(
+                    error.message || "Too many requests. Try again later."
+                );
+            }
+
+            throw new Error(error.message || "Something went wrong!");
         }
 
         if (response.status === 204) {
