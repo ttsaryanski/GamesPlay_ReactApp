@@ -47,9 +47,8 @@ export function AuthProvider({ children }) {
         try {
             setError(null);
             await authService.login({ email, password });
-            setIsLoading(true);
-            navigate("/games/catalog");
             await fetchUser();
+            navigate("/games/catalog");
         } catch (err) {
             setUser(null);
             setError(err.message);
