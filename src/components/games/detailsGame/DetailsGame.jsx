@@ -135,6 +135,14 @@ export default function DetailsGame() {
     return (
         <section id="game-details">
             <h1>Game Details</h1>
+
+            <button
+                style={{ display: "block", margin: "0 auto 40px" }}
+                className="button del-button"
+                onClick={() => navigate(-1)}
+            >
+                Back
+            </button>
             <div className="info-section">
                 <div className="game-header">
                     <img className="game-img" src={game.imageUrl} />

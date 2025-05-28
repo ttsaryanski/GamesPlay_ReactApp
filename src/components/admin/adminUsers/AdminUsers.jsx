@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router";
 
 import { useError } from "../../../contexts/ErrorContext";
 
@@ -7,6 +8,7 @@ import { adminService } from "../../../services/adminService";
 import Spinner from "../../shared/spinner/Spinner";
 
 export default function AdminUsers() {
+    const navigate = useNavigate();
     const { setError } = useError();
     const loaderRef = useRef(null);
 
@@ -107,6 +109,14 @@ export default function AdminUsers() {
     return (
         <section id="catalog-page" className="admin_catalog">
             <h1>Users</h1>
+
+            <button
+                style={{ display: "block", margin: "0 auto" }}
+                className="button del-button"
+                onClick={() => navigate(-1)}
+            >
+                Back
+            </button>
 
             {!isLoading && users.length === 0 && (
                 <h3 className="no-articles">No users yet</h3>

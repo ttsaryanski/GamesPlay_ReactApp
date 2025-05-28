@@ -16,6 +16,7 @@ import AdminUsers from "./components/admin/adminUsers/AdminUsers";
 import Stats from "./components/admin/stats/Stats";
 import Home from "./components/home/Home";
 import Catalog from "./components/games/catalog/Catalog";
+import { ScrollToTop } from "./components/shared/ScrollToTop";
 import DetailsGame from "./components/games/detailsGame/DetailsGame";
 import CreateGame from "./components/games/createGame/CreateGame";
 import EditGame from "./components/games/editGame/EditGame";
@@ -36,6 +37,8 @@ function App() {
                         <ErrorMsg />
 
                         <main id="main-content">
+                            <ScrollToTop />
+
                             <Routes>
                                 <Route path="/" element={<Home />} />
 
