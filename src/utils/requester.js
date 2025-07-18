@@ -68,11 +68,16 @@ async function del(url, signal) {
     return requester("DELETE", url, undefined, signal);
 }
 
+async function patch(url, signal) {
+    return requester("PATCH", url, undefined, signal);
+}
+
 export const api = {
     get,
     post,
     put,
     del,
+    patch,
 };
 
 let csrfToken = undefined;

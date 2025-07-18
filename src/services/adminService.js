@@ -22,7 +22,7 @@ async function getUsers(query, signal) {
 }
 
 async function makeAdmin(id, signal) {
-    return await api.get(endPoints.users + `/${id}`, signal);
+    return await api.patch(endPoints.users + `/${id}`, signal);
 }
 
 async function delUserById(id) {
