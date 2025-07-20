@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
             setUser(userData);
         } catch (err) {
             setUser(null);
-            if (err.message === "Invalid token!") {
+            if (err.message === "Missing token!") {
                 setError(null);
             } else {
                 setError(err.message);
